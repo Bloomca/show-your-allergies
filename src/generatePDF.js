@@ -61,6 +61,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Такие продукты, как молоко, сыр, масло, мороженое, сливки, йогурт, маргарин"
       )
+    ],
+    de: [
+      makeHeader("Keine Molkerei"),
+      makeDescription(
+        "Produkten wie Milch, Käse, Butter, Eis, Sahne, Joghurt, Margarine"
+      )
     ]
   },
   eggs: {
@@ -79,6 +85,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Арахис, миндаль, кешью, грецкие орехи, фисташки, бразильский орех, орехи макадамии, кедровые орешки"
       )
+    ],
+    de: [
+      makeHeader("Keine Nüsse"),
+      makeDescription(
+        "Erdnuss, Mandel, Cashew, Walnuss, Pistazie, Paranuss, Macadamianuss, Pinienkern"
+      )
     ]
   },
   shellfish: {
@@ -92,6 +104,12 @@ const EXPLANATIONS = {
       makeHeader("Без моллюсков"),
       makeDescription(
         "Такие продукты, как креветки, пильчатые креветки, раки, лобстеры, кальмары и морские гребешки"
+      )
+    ],
+    de: [
+      makeHeader("Keine Schaltier"),
+      makeDescription(
+        "Produkten wie Garnele, Krabbe, Flusskrebs, Hummer, Tintenfisch, Jakobsmuscheln"
       )
     ]
   },
@@ -107,6 +125,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Пшеница содержит глютен, поэтому без пшеницы, пожалуйста, и других продуктов с глютеном"
       )
+    ],
+    de: [
+      makeHeader("Keine Gluten und Weizen"),
+      makeDescription(
+        "Weizen hat Gluten, deshalb keine Weizen, bitte, und andere Produkten mit Gluten"
+      )
     ]
   },
   soy: {
@@ -121,6 +145,10 @@ const EXPLANATIONS = {
       makeDescription(
         "Такие продукты, как соевое молоко, соевый соус или соевые бобы"
       )
+    ],
+    de: [
+      makeHeader("Keine Soja"),
+      makeDescription("Produkten wie Soja Milch, Soyasoße und Sojabohnen")
     ]
   },
   fish: {
@@ -134,6 +162,12 @@ const EXPLANATIONS = {
       makeHeader("Без рыбы"),
       makeDescription(
         "Без рыбы с плавниками – заметьте, моллюски не входят в эту категорию"
+      )
+    ],
+    de: [
+      makeHeader("Keine Fisch"),
+      makeDescription(
+        "Ohne Fisch mit Flossen – bitte achten, dass es anders als Schaltier ist!"
       )
     ]
   }
@@ -161,6 +195,15 @@ function renderHeader(lang) {
       "У меня есть аллергия на некоторые виды еды, поэтому, пожалуйста, проверьте, что их нет в моём заказе.",
       "Это очень важно для моего здоровья – я не хочу портить своё время плохим самочувствием или походом к врачу.",
       lastLine("Большое спасибо!")
+    ];
+  }
+
+  if (lang === "de") {
+    return [
+      greetings("Hallo!"),
+      "Ich habe eine Allergie für einige Arten von Lebensmitteln, und können Sie bitte prüfen, dass es keine in meine Bestellung gibt.",
+      "Das ist sehr wichtig für meine Gesundheit – ich will nicht meine Zeit zerstören mit schlechte Gefühl oder mit Arzttermin.",
+      lastLine("Danke schön!")
     ];
   }
 

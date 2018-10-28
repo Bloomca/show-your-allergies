@@ -17,9 +17,11 @@ app.get("/", (req, res) => {
 app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
   const allergies = Object.keys(req.body);
   const baseURL = `/pdf?${allergies.join("&")}`;
-  const enURL = `${baseURL}&lang=en`;
-  const ruURL = `${baseURL}&lang=ru`;
-  res.render("allergies", { allergies, enURL, ruURL });
+  const makeURL = lang => `${baseURL}&lang=${lang}`;
+  const enURL = makeURL("en");
+  const ruURL = makeURL("ru");
+  const deURL = makeURL("de");
+  res.render("allergies", { allergies, enURL, ruURL, deURL });
 });
 
 app.get("/pdf", (req, res) => {
