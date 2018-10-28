@@ -1,17 +1,17 @@
 mixin form()
-  form(action="/post", method="POST")
+  form(action="/create", method="POST")
     label Milk products
-      input(type="checkbox")
+      input(name="milk", type="checkbox")
     label Eggs
-      input(type="checkbox")
+      input(name="eggs", type="checkbox")
     label Nuts
-      input(type="checkbox")
+      input(name="nuts", type="checkbox")
     label Shellfish
-      input(type="checkbox")
+      input(name="shellfish", type="checkbox")
     label Gluten(wheat)
-      input(type="checkbox")
+      input(name="gluten", type="checkbox")
     label Soy
-      input(type="checkbox")
+      input(name="soy", type="checkbox")
     label Fish
-      input(type="checkbox")
+      input(name="fish", type="checkbox")
     button(type="submit") Create

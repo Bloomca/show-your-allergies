@@ -1,5 +1,8 @@
 const path = require("path");
 const express = require("express");
+const bodyParser = require("body-parser");
+const { generatePDF } = require("./generatePDF");
+
 const app = express();
 
 app.set("views", path.join(__dirname, "templates"));
@@ -9,6 +12,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("index", { title: "jey", message: "12" });
+});
+
+app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
+  res.send(
+    '<a href="/">home</a><br/><a href="/pdf" download="my_some.pdf">download PDF</a>'
+  );
+});
+
+app.get("/pdf", (req, res) => {
+  generatePDF({ res });
 });
 
 app.get("*", (req, res) => {
