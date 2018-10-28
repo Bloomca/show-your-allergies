@@ -231,6 +231,7 @@ function renderHeader(lang) {
     return [
       greetings("Здравствуйте!"),
       "У меня есть аллергия на некоторые виды еды, поэтому, пожалуйста, проверьте, что их нет в моём заказе.",
+      "Если что-то готовится на этом продукте, или в соусе – это тоже не подходит, даже небольшое количество способно мне навредить.",
       "Это очень важно для моего здоровья – я не хочу портить своё время плохим самочувствием или походом к врачу.",
       lastLine("Большое спасибо!")
     ];
@@ -240,6 +241,7 @@ function renderHeader(lang) {
     return [
       greetings("Hallo!"),
       "Ich habe eine Allergie für einige Arten von Lebensmitteln, und können Sie bitte prüfen, dass es keine in meine Bestellung gibt.",
+      "Falls Sie kochen mit ihnen, oder es in Soße ist, das ist nicht gut auch – sogar kleine Mengen können schlecht für mich sein.",
       "Das ist sehr wichtig für meine Gesundheit – ich will nicht meine Zeit zerstören mit schlechte Gefühl oder mit Arzttermin.",
       lastLine("Danke schön!")
     ];
@@ -249,6 +251,7 @@ function renderHeader(lang) {
   return [
     greetings("Hello!"),
     "I have food allergies, please make sure that products I order don't contain them.",
+    "If you cook on these products, or a sauce contains it – it is also not suitable for me, even small amount can hurt me.",
     "It is very important for my health – I don't want to ruin my time not feeling good or visiting a doctor.",
     lastLine("Thanks a lot!")
   ];
