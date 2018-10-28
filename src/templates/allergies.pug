@@ -1,6 +1,10 @@
 mixin allergy-mixin(title, description)
-  | #{title}
-  | #{description}
+  div(class="border-b mb-3")
+    h3(class="")= title
+    p= description
+
+mixin download-button(url, text)
+  a(href=url, download="allergies_en.pdf", class="mb-2 bg-white text-base no-underline text-blue px-6 py-3 border-blue leading-none border rounded block hover:bg-blue hover:text-white")= text
 
 html
   head
@@ -8,37 +12,40 @@ html
     link(rel="stylesheet", href="/style.css")
     title= hello
   body(class="bg-grey-lighter")
-    a(href="/") Make another list
+    div(class="flex justify-center mt-4")
+      a(href="/", class="text-lg text-blue hover:text-blue-darker") Make another list
     h1(class="text-center text-4xl mt-8 mb-4") Your Allergies:
 
     - var hasAllergies = allergies.length !== 0
     
-    if hasAllergies
-      ul
-        each allergy in allergies
-          li
-            if allergy == "milk"
-              +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
-            else if allergy == "eggs"
-              +allergy-mixin("No eggs", "No white eggs or yolk")
-            else if allergy == "nuts"
-              +allergy-mixin("No nuts", "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts")
-            else if allergy == "shellfish"
-              +allergy-mixin("No shellfish", "No products like shrimp, prawns, crayfish, lobster, squid, scallops")
-            else if allergy == "fish"
-              +allergy-mixin("No fish", "No fish with fins – different from shellfish!")
-            else if allergy == "soy"
-              +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
-            else if allergy == "gluten"
-              +allergy-mixin("No gluten and wheat", "Wheat contains gluten, so no wheat please, and other products with gluten")
-            else
-              | You have allergy for #{allergy}
+    div(class="flex justify-center")
+      if hasAllergies
+        ul(class="max-w-md")
+          each allergy in allergies
+            li
+              if allergy == "milk"
+                +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
+              else if allergy == "eggs"
+                +allergy-mixin("No eggs", "No white eggs or yolk")
+              else if allergy == "nuts"
+                +allergy-mixin("No nuts", "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts")
+              else if allergy == "shellfish"
+                +allergy-mixin("No shellfish", "No products like shrimp, prawns, crayfish, lobster, squid, scallops")
+              else if allergy == "fish"
+                +allergy-mixin("No fish", "No fish with fins – different from shellfish!")
+              else if allergy == "soy"
+                +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
+              else if allergy == "gluten"
+                +allergy-mixin("No gluten and wheat", "Wheat contains gluten, so no wheat please, and other products with gluten")
+              else
+                | You have allergy for #{allergy}
 
-      a(href=enURL, download="allergies_en.pdf") Download PDF in english
-      a(href=ruURL, download="allergies_ru.pdf") Download PDF in russian
+        div(class="ml-4")
+          +download-button(enURL, "Download PDF in english")
+          +download-button(ruURL, "Download PDF in russian")
 
-      a
-    else
-      | Seems you don't have any! That's great, and if you actually have some – go to the
-      a(href="/") main page
-      | to get a card
+        a
+      else
+        | Seems you don't have any! That's great, and if you actually have some – go to the
+        a(href="/") main page
+        | to get a card
