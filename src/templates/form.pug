@@ -1,17 +1,18 @@
 mixin form()
-  form(action="/create", method="POST")
-    label Milk products
-      input(name="milk", type="checkbox")
-    label Eggs
-      input(name="eggs", type="checkbox")
-    label Nuts
-      input(name="nuts", type="checkbox")
-    label Shellfish
-      input(name="shellfish", type="checkbox")
-    label Gluten(wheat)
-      input(name="gluten", type="checkbox")
-    label Soy
-      input(name="soy", type="checkbox")
-    label Fish
-      input(name="fish", type="checkbox")
-    button(type="submit") Create
+  form(action="/create", method="POST", class="bg-white shadow rounded pb-8 pt-4 mb-4")
+    +checkbox("milk", "Milk", "Products like cow's milk, cheese, butter, margarine, yogurt, cream, ice cream")
+    +checkbox("eggs", "Eggs", "You might be allergic only to white eggs, but not the yolks, but it is safer to exlcude them")
+    +checkbox("nuts", "Nuts", "Peanutes + tree nuts: Almonds, Cashews, Pistachios, Walnuts, Brazil nuts, Macadamia nuts, Pine nuts")
+    +checkbox("shellfish", "Shellfish", "Products like Shrimp, Prawns, Crayfish, Lobster, Squid, Scallops")
+    +checkbox("gluten", "Gluten(wheat)", "Wheat allergy is not the same as gluten allergy, but wheat contains gluten.")
+    +checkbox("soy", "Soy", "Products like soybeans and soy products like soy milk or soy sauce")
+    +checkbox("fish", "Fish", "Shellfish and fish with fins don't carry the same proteins, people who are allergic to shellfish may not be allergic to fish")
+    div(class="flex justify-center mt-8")
+      button(class="bg-blue hover:bg-blue-dark text-white font-bold py-3 px-12 rounded", type="submit") Create
+
+mixin checkbox(name, title, description)
+  label(class="border-b px-8 py-3 cursor-pointer hover:shadow-lg block cursor-pointer")
+    div(class="mb-1")
+      input(name="#{name}", type="checkbox", class="leading-tight mr-2 text-2xl")
+      = title
+    div(class="text-sm mb-2")= description
