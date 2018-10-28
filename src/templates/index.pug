@@ -1,5 +1,12 @@
+include form
+
 html
   head
-    title= title
+    link(rel="stylesheet", href="/style.css")
+    title= hello
   body
-    h1= message
+    h1.title Explain Your Allergies
+    p Having allergies is terrible, but what is extremely annoying is to explain it to everyone. The worst part is than you are abroad, and you are not even sure that you are saying it right! Here you can generate a nice table where you specify all your problematic products, and you don't have to explain it by yourself.
+
+    +form()
+
