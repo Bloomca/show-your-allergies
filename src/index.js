@@ -16,12 +16,14 @@ app.get("/", (req, res) => {
 
 app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
   const allergies = Object.keys(req.body);
-  const url = `/pdf?${allergies.join("&")}`;
-  res.render("allergies", { allergies, url });
+  const baseURL = `/pdf?${allergies.join("&")}`;
+  const enURL = `${baseURL}&lang=en`;
+  const ruURL = `${baseURL}&lang=ru`;
+  res.render("allergies", { allergies, enURL, ruURL });
 });
 
 app.get("/pdf", (req, res) => {
-  generatePDF({ res, allergies: Object.keys(req.query) });
+  generatePDF({ res, allergies: Object.keys(req.query), lang: req.query.lang });
 });
 
 app.get("*", (req, res) => {
