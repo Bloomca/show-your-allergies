@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "eslint": "^5.8.0",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
+    "nodemon": "^1.18.5",
     "prettier": "1.14.3"
   },
   "repository": {
