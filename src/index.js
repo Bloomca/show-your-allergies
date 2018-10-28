@@ -21,7 +21,8 @@ app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
   const enURL = makeURL("en");
   const ruURL = makeURL("ru");
   const deURL = makeURL("de");
-  res.render("allergies", { allergies, enURL, ruURL, deURL });
+  const frURL = makeURL("fr");
+  res.render("allergies", { allergies, enURL, ruURL, deURL, frURL });
 });
 
 app.get("/pdf", (req, res) => {

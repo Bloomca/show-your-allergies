@@ -61,6 +61,12 @@ const EXPLANATIONS = {
     de: [
       makeHeader("ich bin Vegetarier"),
       makeDescription("Ich esse keine Fleisch, Fisch oder Schaltier")
+    ],
+    fr: [
+      makeHeader("Je suis végétarien(ne)"),
+      makeDescription(
+        "Je ne mange pas de viande, de poisson ou de fruit de mer"
+      )
     ]
   },
   vegan: {
@@ -81,13 +87,19 @@ const EXPLANATIONS = {
       makeDescription(
         "Ich esse keine Fleisch, Fisch oder Schaltier, Molkerei und Eier"
       )
+    ],
+    fr: [
+      makeHeader("Je suis végétalien(ne)"),
+      makeDescription(
+        "Je ne mange aucun type de viande, de poisson ou de fruit de mer, de produits laitiers et d'œufs (blancs d’œufs et jaunes)"
+      )
     ]
   },
   milk: {
     en: [
       makeHeader("No dairy products"),
       makeDescription(
-        "Products like milk, cheese, butter, ice cream, cream, yogurt, margarine"
+        "Products like milk, cheese, butter, ice cream, cream, yogurt…"
       )
     ],
     ru: [
@@ -101,14 +113,24 @@ const EXPLANATIONS = {
       makeDescription(
         "Produkten wie Milch, Käse, Butter, Eis, Sahne, Joghurt, Margarine"
       )
+    ],
+    fr: [
+      makeHeader("Aucun produit laitier"),
+      makeDescription(
+        "Des produits comme le lait, le fromage, le beurre, la crème glacée, la crème, le yaourt…"
+      )
     ]
   },
   eggs: {
-    en: [makeHeader("No eggs"), makeDescription("No white eggs or yolks")],
+    en: [makeHeader("No eggs"), makeDescription("No egg whites or yolks")],
     ru: [makeHeader("Без яиц"), makeDescription("Без белка и желтка")],
     de: [
       makeHeader("Keine Eier"),
       makeDescription("Keine Eigelb und weißes Ei")
+    ],
+    fr: [
+      makeHeader("Pas d'oeufs"),
+      makeDescription("Pas blancs d'oeufs ou jaunes")
     ]
   },
   nuts: {
@@ -129,13 +151,19 @@ const EXPLANATIONS = {
       makeDescription(
         "Erdnuss, Mandel, Cashew, Walnuss, Pistazie, Paranuss, Macadamianuss, Pinienkern"
       )
+    ],
+    fr: [
+      makeHeader("Pas de noix"),
+      makeDescription(
+        "Pas d'arachides, amandes, noix de cajou, noix, pistaches, noix du brésil, noix de macadamia, noix de pin"
+      )
     ]
   },
   shellfish: {
     en: [
       makeHeader("No shellfish"),
       makeDescription(
-        "No products like shrimp, prawns, crayfish, lobster, squid, scallops"
+        "No products like shrimp, crayfish, lobster, squid, scallops"
       )
     ],
     ru: [
@@ -148,6 +176,12 @@ const EXPLANATIONS = {
       makeHeader("Keine Schaltier"),
       makeDescription(
         "Produkten wie Garnele, Krabbe, Flusskrebs, Hummer, Tintenfisch, Jakobsmuscheln"
+      )
+    ],
+    fr: [
+      makeHeader("Pas de fruit de mer"),
+      makeDescription(
+        "Aucun produit comme les crevettes, le crabe, le homard, les calmars, les pétoncles"
       )
     ]
   },
@@ -169,6 +203,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Weizen hat Gluten, deshalb keine Weizen, bitte, und andere Produkten mit Gluten"
       )
+    ],
+    fr: [
+      makeHeader("Sans gluten ni blé"),
+      makeDescription(
+        "Le blé contient du gluten, donc pas de blé s'il vous plaît, et d'autres produits contenant du gluten"
+      )
     ]
   },
   soy: {
@@ -187,6 +227,12 @@ const EXPLANATIONS = {
     de: [
       makeHeader("Keine Soja"),
       makeDescription("Produkten wie Soja Milch, Soyasoße und Sojabohnen")
+    ],
+    fr: [
+      makeHeader("Sans soja"),
+      makeDescription(
+        "Aucun produit comme le soja et les produits à base de soja comme le lait de soja ou la sauce soja"
+      )
     ]
   },
   fish: {
@@ -206,6 +252,12 @@ const EXPLANATIONS = {
       makeHeader("Keine Fisch"),
       makeDescription(
         "Ohne Fisch mit Flossen – bitte achten, dass es anders als Schaltier ist!"
+      )
+    ],
+    fr: [
+      makeHeader("Pas de poisson"),
+      makeDescription(
+        "Pas de poissons avec des nageoires - s’il vous plaît notez bien que c'est différent de fruit de mer!"
       )
     ]
   }
@@ -247,12 +299,22 @@ function renderHeader(lang) {
     ];
   }
 
+  if (lang === "fr") {
+    return [
+      greetings("Bonjour!"),
+      "Je souffre d'allergies alimentaires. S’il vous plaît, assurez-vous que les produits que je commande ne les contiennent pas.",
+      "Si vous cuisinez avec ces produits ou si une sauce en contient, je ne peux pas le manger. Même les plus petits montant peut me faire mal!",
+      "C'est très important pour ma santé - Je ne veux pas tomber malade ni aller à l'hôpital.",
+      lastLine("Merci beaucoup!")
+    ];
+  }
+
   // we render english version if we don't have info for this lang.
   return [
     greetings("Hello!"),
     "I have food allergies, please make sure that products I order don't contain them.",
-    "If you cook on these products, or a sauce contains it – it is also not suitable for me, even small amount can hurt me.",
-    "It is very important for my health – I don't want to ruin my time not feeling good or visiting a doctor.",
+    "If you cook on these products, or a sauce contains it – I cannot eat it. Even small amount can hurt me.",
+    "It is very important for my health – I don't want to ruin my time not feeling good or going to the hospital.",
     lastLine("Thanks a lot!")
   ];
 }
