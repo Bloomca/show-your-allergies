@@ -21,7 +21,6 @@ app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
 });
 
 app.get("/pdf", (req, res) => {
-  console.log(Object.keys(req.query));
   generatePDF({ res, allergies: Object.keys(req.query) });
 });
 

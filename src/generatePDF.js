@@ -15,9 +15,12 @@ const printer = new pdfMakePrinter(fontDescriptors);
 module.exports.generatePDF = ({ res, allergies }) => {
   const docDefinition = {
     content: [
-      "First paragraph",
-      "Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines",
-      ...renderAllergies({ allergies, lang: "en" })
+      "Hello",
+      "I have food allergies, please make sure that products I order don't contain them:",
+      ...renderAllergies({ allergies, lang: "en" }).reduce(
+        (arr, text) => arr.concat(text),
+        []
+      )
     ]
   };
 
@@ -28,7 +31,7 @@ module.exports.generatePDF = ({ res, allergies }) => {
 
 const EXPLANATIONS = {
   milk: {
-    en: "NO MILK"
+    en: ["no dairy products", "products like cheese, etc"]
   },
   eggs: {
     en: "NO EGGS"
