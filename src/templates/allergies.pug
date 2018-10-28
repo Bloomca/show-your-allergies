@@ -3,8 +3,8 @@ mixin allergy-mixin(title, description)
     h3(class="")= title
     p= description
 
-mixin download-button(url, text)
-  a(href=url, download="allergies_en.pdf", class="mb-2 bg-white text-base no-underline text-blue px-6 py-3 border-blue leading-none border rounded block hover:bg-blue hover:text-white")= text
+mixin download-button(url, text, fileName)
+  a(href=url, download=fileName, class="mb-2 bg-white text-base no-underline text-blue px-6 py-3 border-blue leading-none border rounded block hover:bg-blue hover:text-white")= text
 
 html
   head
@@ -41,8 +41,8 @@ html
                 | You have allergy for #{allergy}
 
         div(class="ml-4")
-          +download-button(enURL, "Download PDF in english")
-          +download-button(ruURL, "Download PDF in russian")
+          +download-button(enURL, "Download PDF in english", "allergies_en.pdf")
+          +download-button(ruURL, "Download PDF in russian", "allergies_ru.pdf")
 
         a
       else
