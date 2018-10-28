@@ -1,3 +1,7 @@
+mixin allergy-mixin(title, description)
+  | #{title}
+  | #{description}
+
 html
   head
     link(rel="stylesheet", href="/tailwind.min.css")
@@ -12,7 +16,23 @@ html
     if hasAllergies
       ul
         each allergy in allergies
-          li= allergy
+          li
+            if allergy == "milk"
+              +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
+            else if allergy == "eggs"
+              +allergy-mixin("No eggs", "No white eggs or yolk")
+            else if allergy == "nuts"
+              +allergy-mixin("No nuts", "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts")
+            else if allergy == "shellfish"
+              +allergy-mixin("No shellfish", "No products like shrimp, prawns, crayfish, lobster, squid, scallops")
+            else if allergy == "fish"
+              +allergy-mixin("No fish", "No fish with fins – different from shellfish!")
+            else if allergy == "soy"
+              +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
+            else if allergy == "gluten"
+              +allergy-mixin("No gluten and wheat", "se")
+            else
+              | ???
 
       a(href=url, download="allergies.pdf") Download PDF
 
