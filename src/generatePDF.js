@@ -67,6 +67,10 @@ const EXPLANATIONS = {
       makeDescription(
         "Je ne mange pas de viande, de poisson ou de fruit de mer"
       )
+    ],
+    es: [
+      makeHeader("Soy vegetariano/a"),
+      makeDescription("No como carne, pescado o molusco")
     ]
   },
   vegan: {
@@ -92,6 +96,12 @@ const EXPLANATIONS = {
       makeHeader("Je suis végétalien(ne)"),
       makeDescription(
         "Je ne mange aucun type de viande, de poisson ou de fruit de mer, de produits laitiers et d'œufs (blancs d’œufs et jaunes)"
+      )
+    ],
+    es: [
+      makeHeader("Soy vegano/a"),
+      makeDescription(
+        "No como ningún tipo de carne, pescado o mariscos, productos lácteos y huevos (claras de huevo y yemas)"
       )
     ]
   },
@@ -119,6 +129,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Des produits comme le lait, le fromage, le beurre, la crème glacée, la crème, le yaourt…"
       )
+    ],
+    es: [
+      makeHeader("Sin productos lácteos"),
+      makeDescription(
+        "Productos como leche, queso, mantequilla, helado, crema, yogurt…"
+      )
     ]
   },
   eggs: {
@@ -131,6 +147,10 @@ const EXPLANATIONS = {
     fr: [
       makeHeader("Pas d'oeufs"),
       makeDescription("Pas blancs d'oeufs ou jaunes")
+    ],
+    es: [
+      makeHeader("Sin huevos"),
+      makeDescription("Sin claras de huevo o amarillas")
     ]
   },
   nuts: {
@@ -156,6 +176,12 @@ const EXPLANATIONS = {
       makeHeader("Pas de noix"),
       makeDescription(
         "Pas d'arachides, amandes, noix de cajou, noix, pistaches, noix du brésil, noix de macadamia, noix de pin"
+      )
+    ],
+    es: [
+      makeHeader("Sin nueces"),
+      makeDescription(
+        "Sin cacahuetes, almendras, anacardos, nueces, pistachos, nueces de Brasil, nueces de macadamia, piñones"
       )
     ]
   },
@@ -183,6 +209,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Aucun produit comme les crevettes, le crabe, le homard, les calmars, les pétoncles"
       )
+    ],
+    es: [
+      makeHeader("Sin mariscos"),
+      makeDescription(
+        "No hay productos como camarones, cangrejos, langostas, calamares, vieiras"
+      )
     ]
   },
   gluten: {
@@ -209,6 +241,12 @@ const EXPLANATIONS = {
       makeDescription(
         "Le blé contient du gluten, donc pas de blé s'il vous plaît, et d'autres produits contenant du gluten"
       )
+    ],
+    es: [
+      makeHeader("Sin gluten y sin trigo"),
+      makeDescription(
+        "El trigo contiene gluten, por lo que no hay trigo por favor, y otros productos que contienen gluten"
+      )
     ]
   },
   soy: {
@@ -232,6 +270,12 @@ const EXPLANATIONS = {
       makeHeader("Sans soja"),
       makeDescription(
         "Aucun produit comme le soja et les produits à base de soja comme le lait de soja ou la sauce soja"
+      )
+    ],
+    es: [
+      makeHeader("Sin soy"),
+      makeDescription(
+        "No hay productos como la soya y productos de soya como la leche de soya o la salsa de soya"
       )
     ]
   },
@@ -258,6 +302,12 @@ const EXPLANATIONS = {
       makeHeader("Pas de poisson"),
       makeDescription(
         "Pas de poissons avec des nageoires - s’il vous plaît notez bien que c'est différent de fruit de mer!"
+      )
+    ],
+    es: [
+      makeHeader("Ningún pez"),
+      makeDescription(
+        "No hay pescado con aletas. ¡Tenga en cuenta que es diferente de los mariscos!"
       )
     ]
   }
@@ -306,6 +356,16 @@ function renderHeader(lang) {
       "Si vous cuisinez avec ces produits ou si une sauce en contient, je ne peux pas le manger. Même les plus petits montant peut me faire mal!",
       "C'est très important pour ma santé - Je ne veux pas tomber malade ni aller à l'hôpital.",
       lastLine("Merci beaucoup!")
+    ];
+  }
+
+  if (lang === "es") {
+    return [
+      greetings("¡Buenos dias!"),
+      "Sufro de alergias alimentarias. Por favor, asegúrese de que los productos que ordeno no los contengan.",
+      "Si cocinas con estos productos o si una salsa contiene algo, no puedo comerlo. Incluso los más pequeños. ¡La cantidad puede lastimarme!",
+      "Es muy importante para mi salud: no quiero enfermarme ni ir al hospital.",
+      lastLine("¡Muchas gracias!")
     ];
   }
 
