@@ -1,5 +1,7 @@
 mixin form()
   form(action="/create", method="POST", class="bg-white shadow rounded pb-8 pt-4 mb-4")
+    +checkbox("vegetarian", "Vegetarian", "Not an allergy, but an umbrella term for not eating any kind of meat, fish or shellfish")
+    +checkbox("vegan", "Vegan", "Not an allergy as well – it means you don't eat meat, fish, shellfish, dairy products and eggs.")
     +checkbox("milk", "Milk", "Products like cow's milk, cheese, butter, margarine, yogurt, cream, ice cream")
     +checkbox("eggs", "Eggs", "You might be allergic only to white eggs, but not the yolks, but it is safer to exlcude them")
     +checkbox("nuts", "Nuts", "Peanutes + tree nuts: Almonds, Cashews, Pistachios, Walnuts, Brazil nuts, Macadamia nuts, Pine nuts")

@@ -49,6 +49,40 @@ module.exports.generatePDF = ({ res, allergies, lang }) => {
 };
 
 const EXPLANATIONS = {
+  vegetarian: {
+    en: [
+      makeHeader("I am vegeterian"),
+      makeDescription("I don't eat any kind of meat, fish or shellfish")
+    ],
+    ru: [
+      makeHeader("Я ветегерианец"),
+      makeDescription("Я не ем мясо всех видов, рыбу и моллюсков")
+    ],
+    de: [
+      makeHeader("ich bin Vegetarier"),
+      makeDescription("Ich esse keine Fleisch, Fisch oder Schaltier")
+    ]
+  },
+  vegan: {
+    en: [
+      makeHeader("I am vegan"),
+      makeDescription(
+        "I don't eat any kind of meat, fish or shellfish, dairy products and eggs (both white eggs and yolks)"
+      )
+    ],
+    ru: [
+      makeHeader("У меня веганский рацион"),
+      makeDescription(
+        "Я не ем мясо всех видов, рыбу и моллюсков, любые молочные продукты и яйца (белки и желтки)"
+      )
+    ],
+    de: [
+      makeHeader("Ich bin Veganer"),
+      makeDescription(
+        "Ich esse keine Fleisch, Fisch oder Schaltier, Molkerei und Eier"
+      )
+    ]
+  },
   milk: {
     en: [
       makeHeader("No dairy products"),
@@ -71,7 +105,11 @@ const EXPLANATIONS = {
   },
   eggs: {
     en: [makeHeader("No eggs"), makeDescription("No white eggs or yolks")],
-    ru: [makeHeader("Без яиц"), makeDescription("Без белка и желтка")]
+    ru: [makeHeader("Без яиц"), makeDescription("Без белка и желтка")],
+    de: [
+      makeHeader("Keine Eier"),
+      makeDescription("Keine Eigelb und weißes Ei")
+    ]
   },
   nuts: {
     en: [

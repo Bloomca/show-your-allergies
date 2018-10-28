@@ -26,7 +26,11 @@ html
           ul(class="max-w-md")
             each allergy in allergies
               li
-                if allergy == "milk"
+                if allergy == "vegetarian"
+                  +allergy-mixin("Vegeterian diet", "No meat, fish and shellfish, please")
+                else if allergy == "vegan"
+                  +allergy-mixin("Vegan diet", "No meat, fish or shellfish, no dairy products, no eggs")
+                else if allergy == "milk"
                   +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
                 else if allergy == "eggs"
                   +allergy-mixin("No eggs", "No white eggs or yolk")
