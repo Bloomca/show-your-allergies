@@ -115,14 +115,12 @@ const EXPLANATIONS = {
     ru: [
       makeHeader("Без молочных продуктов"),
       makeDescription(
-        "Такие продукты, как молоко, сыр, масло, мороженое, сливки, йогурт, маргарин"
+        "Такие продукты, как молоко, сыр, масло, мороженое, сливки, йогурт…"
       )
     ],
     de: [
       makeHeader("Keine Molkerei"),
-      makeDescription(
-        "Produkten wie Milch, Käse, Butter, Eis, Sahne, Joghurt, Margarine"
-      )
+      makeDescription("Produkten wie Milch, Käse, Butter, Eis, Sahne, Joghurt…")
     ],
     fr: [
       makeHeader("Aucun produit laitier"),
@@ -195,13 +193,13 @@ const EXPLANATIONS = {
     ru: [
       makeHeader("Без моллюсков"),
       makeDescription(
-        "Такие продукты, как креветки, пильчатые креветки, раки, лобстеры, кальмары и морские гребешки"
+        "Такие продукты, как креветки, раки, лобстеры, кальмары и морские гребешки"
       )
     ],
     de: [
       makeHeader("Keine Schaltier"),
       makeDescription(
-        "Produkten wie Garnele, Krabbe, Flusskrebs, Hummer, Tintenfisch, Jakobsmuscheln"
+        "Produkten wie Garnele, Flusskrebs, Hummer, Tintenfisch, Jakobsmuscheln"
       )
     ],
     fr: [
