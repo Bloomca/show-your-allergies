@@ -11,7 +11,7 @@ app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "jey", message: "12" });
+  res.render("index");
 });
 
 app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
