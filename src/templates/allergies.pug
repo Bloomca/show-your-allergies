@@ -8,7 +8,7 @@ html
     link(rel="stylesheet", href="/style.css")
     title= hello
   body(class="bg-grey-lighter")
-    a(href="/") Home
+    a(href="/") Make another list
     h1(class="text-center text-4xl mt-8 mb-4") Your Allergies:
 
     - var hasAllergies = allergies.length !== 0
@@ -30,9 +30,9 @@ html
             else if allergy == "soy"
               +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
             else if allergy == "gluten"
-              +allergy-mixin("No gluten and wheat", "se")
+              +allergy-mixin("No gluten and wheat", "Wheat contains gluten, so no wheat please, and other products with gluten")
             else
-              | ???
+              | You have allergy for #{allergy}
 
       a(href=url, download="allergies.pdf") Download PDF
 

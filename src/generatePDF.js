@@ -31,25 +31,40 @@ module.exports.generatePDF = ({ res, allergies }) => {
 
 const EXPLANATIONS = {
   milk: {
-    en: ["no dairy products", "products like cheese, etc"]
+    en: [
+      "No dairy products",
+      "products like milk, cheese, butter, ice cream, cream, yogurt, margarine"
+    ]
   },
   eggs: {
-    en: "NO EGGS"
+    en: ["No eggs", "No white eggs or yolks"]
   },
   nuts: {
-    en: "NO NUTS"
+    en: [
+      "No nuts",
+      "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts"
+    ]
   },
   shellfish: {
-    en: "NO SHELLFISH"
+    en: [
+      "No shellfish",
+      "No products like shrimp, prawns, crayfish, lobster, squid, scallops"
+    ]
   },
   gluten: {
-    en: "NO GLUTEN"
+    en: [
+      "No gluten or wheat",
+      "Wheat contains gluten, so no wheat please, and other products with gluten"
+    ]
   },
   soy: {
-    en: "NO SOY"
+    en: [
+      "No soy",
+      "No products like soybeans and soy products like soy milk or soy sauce"
+    ]
   },
   fish: {
-    en: "NO FISH"
+    en: ["No fish", "No fish with fins – different from shellfish!"]
   }
 };
 

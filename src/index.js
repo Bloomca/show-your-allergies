@@ -35,14 +35,3 @@ app.listen(port, function() {
   // eslint-disable-next-line no-console
   console.log(`visit it in your browser at http://127.0.0.1:${port}`);
 });
-
-/**
- * https://www.healthline.com/nutrition/common-food-allergies
- * 1. milk (or dairy products in general)
- * 2. eggs
- * 3. tree nuts (PEANUTS are different, but better to keep here)
- * 4. Shellfish
- * 5. gluten (wheat)
- * 6. soy
- * 7. fish
- */
