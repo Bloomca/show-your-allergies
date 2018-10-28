@@ -15,13 +15,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/create", bodyParser.urlencoded({ extended: false }), (req, res) => {
-  res.send(
-    '<a href="/">home</a><br/><a href="/pdf" download="my_some.pdf">download PDF</a>'
-  );
+  const allergies = Object.keys(req.body);
+  const url = `/pdf?${allergies.join("&")}`;
+  res.render("allergies", { allergies, url });
 });
 
 app.get("/pdf", (req, res) => {
-  generatePDF({ res });
+  console.log(Object.keys(req.query));
+  generatePDF({ res, allergies: Object.keys(req.query) });
 });
 
 app.get("*", (req, res) => {

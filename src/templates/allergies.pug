@@ -1,0 +1,21 @@
+html
+  head
+    link(rel="stylesheet", href="/tailwind.min.css")
+    link(rel="stylesheet", href="/style.css")
+    title= hello
+  body(class="bg-grey-lighter")
+    a(href="/") Home
+    h1(class="text-center text-4xl mt-8 mb-4") Your Allergies:
+
+    - var hasAllergies = allergies.length !== 0
+    
+    if hasAllergies
+      ul
+        each allergy in allergies
+          li= allergy
+
+      a(href=url, download="allergies.pdf") Download PDF
+
+      a
+    else
+      | Seems you don't have any!

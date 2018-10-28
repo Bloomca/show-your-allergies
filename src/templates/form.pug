@@ -13,6 +13,6 @@ mixin form()
 mixin checkbox(name, title, description)
   label(class="border-b px-8 py-3 cursor-pointer hover:shadow-lg block cursor-pointer")
     div(class="mb-1")
-      input(name="#{name}", type="checkbox", class="leading-tight mr-2 text-2xl")
+      input(name=name, type="checkbox", class="leading-tight mr-2 text-2xl")
       = title
     div(class="text-sm mb-2")= description

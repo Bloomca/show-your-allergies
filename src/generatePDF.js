@@ -12,15 +12,44 @@ var fontDescriptors = {
 
 const printer = new pdfMakePrinter(fontDescriptors);
 
-var docDefinition = {
-  content: [
-    "First paragraph",
-    "Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines"
-  ]
-};
+module.exports.generatePDF = ({ res, allergies }) => {
+  const docDefinition = {
+    content: [
+      "First paragraph",
+      "Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines",
+      ...renderAllergies({ allergies, lang: "en" })
+    ]
+  };
 
-module.exports.generatePDF = ({ res }) => {
   const pdfDoc = printer.createPdfKitDocument(docDefinition);
   pdfDoc.pipe(res);
   pdfDoc.end();
 };
+
+const EXPLANATIONS = {
+  milk: {
+    en: "NO MILK"
+  },
+  eggs: {
+    en: "NO EGGS"
+  },
+  nuts: {
+    en: "NO NUTS"
+  },
+  shellfish: {
+    en: "NO SHELLFISH"
+  },
+  gluten: {
+    en: "NO GLUTEN"
+  },
+  soy: {
+    en: "NO SOY"
+  },
+  fish: {
+    en: "NO FISH"
+  }
+};
+
+function renderAllergies({ allergies, lang }) {
+  return allergies.map(allergy => EXPLANATIONS[allergy][lang]);
+}
