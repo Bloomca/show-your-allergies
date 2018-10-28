@@ -1,8 +1,14 @@
+include mixins
+
 html
   head
     title Not Found
     link(rel="stylesheet", href="/tailwind.min.css")
-  body(class="bg-grey-lighter")
-    h1(class="text-center text-4xl mt-16 mb-4") Sorry, we can't find your page
-    div(class="flex justify-center mt-4")
-      a(href="/", class="text-xl text-blue hover:text-blue-darker") Make your allergies list
+    link(rel="stylesheet", href="/style.css")
+  body(class="bg-grey-lighter content")
+    div(class="flex-1")
+      h1(class="text-center text-4xl mt-16 mb-4") Sorry, we can't find your page
+      div(class="flex justify-center mt-4")
+        a(href="/", class="text-xl text-blue hover:text-blue-darker") Make your allergies list
+
+    +footer()

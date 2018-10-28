@@ -1,0 +1,11 @@
+mixin external-link(url, text)
+  a(href=url, class="text-blue hover:text-blue-darker ml-2 mr-2", target="_blank", rel="noopener noreferrer")= text
+
+mixin footer()
+  footer(class="mt-4 bg-grey-lightest p-12 text-center")
+    div(class="mx-auto mb-4")
+      | Made by
+      +external-link("https://blog.bloomca.me/about", "Seva Zaikov")
+    +external-link("https://github.com/Bloomca", "Github")
+    +external-link("https://twitter.com/blooomca", "Twitter")
+    a(class="text-blue hover:text-blue-darker ml-2 mr-2", href="mailto:seva.zaikov@gmail.com") seva.zaikov@gmail.com

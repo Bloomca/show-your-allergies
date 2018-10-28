@@ -1,3 +1,5 @@
+include mixins
+
 mixin allergy-mixin(title, description)
   div(class="border-b mb-3")
     h3(class="")= title
@@ -11,41 +13,44 @@ html
     link(rel="stylesheet", href="/tailwind.min.css")
     link(rel="stylesheet", href="/style.css")
     title= hello
-  body(class="bg-grey-lighter")
-    div(class="flex justify-center mt-8")
-      a(href="/", class="text-lg text-blue hover:text-blue-darker") Make another list
-    h1(class="text-center text-4xl mt-8 mb-4") Your Allergies:
+  body(class="bg-grey-lighter content")
+    div(class="flex-1")
+      div(class="flex flex-row justify-center mt-8")
+        a(href="/", class="text-lg text-blue hover:text-blue-darker") Make another list
+      h1(class="text-center text-4xl mt-8 mb-4") Your Allergies:
 
-    - var hasAllergies = allergies.length !== 0
-    
-    div(class="flex justify-center")
-      if hasAllergies
-        ul(class="max-w-md")
-          each allergy in allergies
-            li
-              if allergy == "milk"
-                +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
-              else if allergy == "eggs"
-                +allergy-mixin("No eggs", "No white eggs or yolk")
-              else if allergy == "nuts"
-                +allergy-mixin("No nuts", "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts")
-              else if allergy == "shellfish"
-                +allergy-mixin("No shellfish", "No products like shrimp, prawns, crayfish, lobster, squid, scallops")
-              else if allergy == "fish"
-                +allergy-mixin("No fish", "No fish with fins – different from shellfish!")
-              else if allergy == "soy"
-                +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
-              else if allergy == "gluten"
-                +allergy-mixin("No gluten and wheat", "Wheat contains gluten, so no wheat please, and other products with gluten")
-              else
-                | You have allergy for #{allergy}
+      - var hasAllergies = allergies.length !== 0
+      
+      div(class="flex flex-row justify-center")
+        if hasAllergies
+          ul(class="max-w-md")
+            each allergy in allergies
+              li
+                if allergy == "milk"
+                  +allergy-mixin("No milk products", "Like milk, cheese, cream, butter, ice cream, margarine")
+                else if allergy == "eggs"
+                  +allergy-mixin("No eggs", "No white eggs or yolk")
+                else if allergy == "nuts"
+                  +allergy-mixin("No nuts", "No peanuts, almonds, cashews, walnuts, pistachios, brazil nuts, macadamia nuts, pine nuts")
+                else if allergy == "shellfish"
+                  +allergy-mixin("No shellfish", "No products like shrimp, prawns, crayfish, lobster, squid, scallops")
+                else if allergy == "fish"
+                  +allergy-mixin("No fish", "No fish with fins – different from shellfish!")
+                else if allergy == "soy"
+                  +allergy-mixin("No soy", "No products like soybeans and soy products like soy milk or soy sauce")
+                else if allergy == "gluten"
+                  +allergy-mixin("No gluten and wheat", "Wheat contains gluten, so no wheat please, and other products with gluten")
+                else
+                  | You have allergy for #{allergy}
 
-        div(class="ml-4")
-          +download-button(enURL, "Download PDF in english", "allergies_en.pdf")
-          +download-button(ruURL, "Download PDF in russian", "allergies_ru.pdf")
+          div(class="ml-4")
+            +download-button(enURL, "Download PDF in english", "allergies_en.pdf")
+            +download-button(ruURL, "Download PDF in russian", "allergies_ru.pdf")
 
-        a
-      else
-        | Seems you don't have any! That's great, and if you actually have some – go to the
-        a(href="/") main page
-        | to get a card
+          a
+        else
+          | Seems you don't have any! That's great, and if you actually have some – go to the
+          a(href="/") main page
+          | to get a card
+
+    +footer()
